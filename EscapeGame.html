@@ -90,13 +90,15 @@
 					<div class="row">
 						<div class="col-6 col-12-medium">
 							<section class="contact">
-								<form id="contact-form">
+								<form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+									<input type="hidden" name="access_key" value="044ba6f0-7f3e-46c4-8626-5d2eaaa6508d">
+									<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 									<div class="row gtr-50">
 										<div class="col-6 col-12-small">
-											<input name="user_name" id="user_name" placeholder="Nom" type="text" required />
+											<input name="name" id="name" placeholder="Nom" type="text" required />
 										</div>
 										<div class="col-6 col-12-small">
-											<input name="user_email" id="user_email" placeholder="Email" type="email" required />
+											<input name="email" id="email" placeholder="Email" type="email" required />
 										</div>
 										<div class="col-12">
 											<textarea name="message" id="message" placeholder="Message" required></textarea>
@@ -154,47 +156,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
-			<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-	// Assurez-vous que le script EmailJS est inclus dans votre HTML
-// Ajoutez ceci dans votre fichier HTML avant la fermeture de la balise </body> :
-// <script src="https://cdn.emailjs.com/dist/email.min.js">
-
-document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("QbYkAro7z7P680BAI"); // Remplacez "your_user_id" par votre clé publique EmailJS
-
-    const contactForm = document.getElementById("contact-form");
-
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault(); // Empêche la soumission par défaut du formulaire
-
-        // Récupère les valeurs du formulaire
-        const userName = document.getElementById("user_name").value;
-        const userEmail = document.getElementById("user_email").value;
-        const message = document.getElementById("message").value;
-
-        // Crée un objet contenant les données à envoyer
-        const formData = {
-            user_name: userName,
-            user_email: userEmail,
-            message: message,
-        };
-
-        // Remplacez "your_service_id" et "your_template_id" par les valeurs de votre EmailJS
-        emailjs.send("service_jsp974JENSAISR", "template_86whbvh", formData)
-            .then(function (response) {
-                alert("Message envoyé avec succès !");
-                contactForm.reset(); // Réinitialise le formulaire après envoi
-            })
-            .catch(function (error) {
-                console.error("Erreur lors de l'envoi :", error);
-                alert("Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.");
-            });
-    });
-});
-
-</script>
 
 	</body>
 </html>
