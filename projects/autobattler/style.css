@@ -1,0 +1,775 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    -webkit-user-drag: none;
+    /* FORCE DISABLE NATIVE DRAG EVERYWHERE */
+}
+
+body {
+    overflow: hidden;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#gl-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let clicks pass through to canvas where needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#top-bar {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#shop-container {
+    background: #0b0b0e;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border-top: 2px solid #333;
+    pointer-events: auto;
+}
+
+#shop-left-panel {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    gap: 8px;
+}
+
+#shop-rates-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    width: 60px;
+    border-left: 1px solid #333;
+    padding-left: 10px;
+}
+
+.rate-title {
+    font-size: 0.7rem;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+.rate-row {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 6px;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    color: white;
+    width: 100%;
+}
+
+.rate-row:before {
+    content: '●';
+    font-size: 0.6rem;
+    margin-right: 5px;
+    color: inherit;
+    /* inherit from rate-row color */
+}
+
+/* Base Colors (Text - used elsewhere?) */
+.tier-1 {
+    color: #a0a0a0;
+}
+
+.tier-2 {
+    color: #2ecc71;
+}
+
+.tier-3 {
+    color: #00aaff;
+}
+
+.tier-4 {
+    color: #d500f9;
+}
+
+.tier-5 {
+    color: #ffd700;
+}
+
+/* Backgrounds for Rate Rows (Overriding text color) */
+.rate-row.tier-1 {
+    background-color: #7f8c8d;
+    color: white;
+}
+
+.rate-row.tier-2 {
+    background-color: #27ae60;
+    color: white;
+}
+
+.rate-row.tier-3 {
+    background-color: #2980b9;
+    color: white;
+}
+
+.rate-row.tier-4 {
+    background-color: #8e44ad;
+    color: white;
+}
+
+.rate-row.tier-5 {
+    background-color: #f39c12;
+    color: white;
+    text-shadow: none;
+}
+
+#level-info-box {
+    background: #1e2328;
+    color: #cdbe91;
+    padding: 8px 12px;
+    border: 1px solid #444;
+    /* #c8aa6e gold border in TFT but simpler here */
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: bold;
+    align-items: center;
+    height: 40px;
+}
+
+#shop-rates-bar {
+    display: flex;
+    gap: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 10px;
+    border-radius: 4px;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.rate-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rate-item:before {
+    content: '✦';
+    font-size: 0.6rem;
+}
+
+.tier-1 {
+    color: #888;
+}
+
+.tier-2 {
+    color: #2ecc71;
+}
+
+.tier-3 {
+    color: #3498db;
+}
+
+.tier-4 {
+    color: #9b59b6;
+}
+
+.tier-5 {
+    color: #f1c40f;
+}
+
+/* Custom Shop Buttons */
+#shop-left-panel button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 12px;
+    background: #1e2328;
+    border: 1px solid #3c3c41;
+    color: #cdbe91;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 55px;
+    /* Fixed height for consistency */
+}
+
+#shop-left-panel button:hover {
+    border-color: #c8aa6e;
+    background: #2a2f35;
+    box-shadow: 0 0 8px rgba(200, 170, 110, 0.2);
+}
+
+#shop-left-panel button:active {
+    transform: scale(0.98);
+}
+
+#shop-left-panel button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #333;
+}
+
+.btn-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-cost {
+    font-size: 0.8rem;
+    color: #ffd700;
+    margin-top: 2px;
+}
+
+#shop-cards {
+    display: flex;
+    gap: 8px;
+}
+
+.shop-card {
+    width: 120px;
+    height: 180px;
+    background: #2a2a30;
+    border: 1px solid #444;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.shop-card:hover {
+    transform: translateY(-5px);
+    background: #333;
+    border-color: #888;
+}
+
+.shop-card .unit-icon {
+    width: 60px;
+    height: 60px;
+    background: #000;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border: 1px solid #333;
+}
+
+.shop-card .unit-name {
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: 600;
+    color: #ddd;
+}
+
+.shop-card .unit-cost {
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 5px 10px;
+    border-radius: 4px;
+    pointer-events: none;
+    font-size: 0.8rem;
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Unit Shapes */
+.shape-cube {
+    border-radius: 4px;
+}
+
+.shape-tshape {
+    /* T-Shape approximation */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 35%, 65% 35%, 65% 100%, 35% 100%, 35% 35%, 0% 35%);
+}
+
+.shape-pyramid {
+    /* Triangle */
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.shape-cylinder {
+    /* Tall thin pill */
+    width: 30px !important;
+    border-radius: 10px;
+}
+
+.shape-sphere {
+    border-radius: 50%;
+}
+
+/* Synergy Panel */
+#synergy-panel {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    /* width: 220px; */
+    bottom: 25%;
+    /* Space for shop? */
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+#synergy-panel.minimized {
+    transform: translateX(-200px);
+    /* Hide list */
+}
+
+#synergy-panel.minimized #synergy-toggle {
+    transform: rotate(180deg);
+}
+
+.synergy-header-row {
+    position: absolute;
+    right: -24px;
+    /* Stick out */
+    top: 0;
+    width: 24px;
+    height: 40px;
+}
+
+#synergy-toggle {
+    width: 100%;
+    height: 100%;
+    background: #2a2a30;
+    border: 1px solid #444;
+    border-left: none;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 4px 4px 0;
+    transition: transform 0.3s;
+}
+
+.synergy-list {
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: visible;
+}
+
+.synergy-row {
+    display: flex;
+    align-items: center;
+    background: rgba(20, 20, 20, 0.95);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    color: #ccc;
+    width: 200px;
+    /* Fixed width plaque */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.synergy-row:hover {
+    transform: translateX(5px);
+    background: #2a2a30;
+    border-color: #666;
+}
+
+.synergy-row.active {
+    border-color: #888;
+    color: #fff;
+}
+
+.synergy-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    background: #333;
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+
+.tier-0 {
+    background: #444;
+    color: #888;
+}
+
+.tier-1 {
+    background: #cd7f32;
+    color: #fff;
+}
+
+/* Bronze */
+.tier-2 {
+    background: #c0c0c0;
+    color: #000;
+}
+
+/* Silver */
+.tier-3 {
+    background: #ffd700;
+    color: #000;
+}
+
+/* Gold */
+.tier-4 {
+    background: #e5e4e2;
+    color: #000;
+    box-shadow: 0 0 5px #fff;
+}
+
+/* Platinum */
+
+.synergy-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.synergy-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+    line-height: 1.1;
+}
+
+.synergy-count {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: inherit;
+}
+
+.synergy-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.synergy-thresholds {
+    font-size: 0.7rem;
+    color: #666;
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.active .synergy-thresholds {
+    color: #aaa;
+}
+
+.t-active {
+    color: #fff;
+    font-weight: bold;
+}
+
+.t-inactive {
+    color: #555;
+}
+
+
+/* Item View (Selected Unit) - Moved to Right */
+#item-view {
+    position: absolute;
+    right: 10px;
+    left: auto;
+    top: 15%;
+    width: 220px;
+    background: rgba(20, 20, 25, 0.95);
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 5;
+}
+
+#synergy-toggle {
+    display: none;
+    /* User requested non-retractable */
+}
+
+.item-view-header {
+    font-weight: bold;
+    color: #ffd700;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.item-view-stats {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+.items-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.unit-item {
+    background: #333;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.item-name {
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.item-stats {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.item-slots-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.item-slot {
+    width: 44px;
+    height: 44px;
+    background: #2a2a30;
+    border: 1px solid #444;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: border-color 0.2s;
+    touch-action: none;
+    /* Prevent native touch actions */
+}
+
+.item-slot.empty {
+    background: #222;
+    border: 1px dashed #444;
+}
+
+.item-slot.filled {
+    border-color: #ffd700;
+    cursor: help;
+    background: #333;
+}
+
+.item-slot.filled:hover {
+    border-color: #fff;
+    background: #444;
+}
+
+.item-icon-placeholder {
+    width: 36px;
+    height: 36px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000;
+    font-size: 1.2rem;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Item Stash */
+#item-stash {
+    position: absolute;
+    left: 10px;
+    top: 60px;
+    /* Below top bar */
+    background: rgba(20, 20, 25, 0.95);
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    z-index: 5;
+}
+
+.stash-title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* General Inventory */
+/* General Inventory (Left Side Strip) */
+#general-inventory {
+    position: absolute;
+    left: 10px;
+    top: 15%;
+    width: 60px;
+    background: #111;
+    border: 2px solid #444;
+    border-radius: 8px;
+    padding: 10px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 20;
+    pointer-events: auto;
+    align-items: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.inventory-title {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 5px;
+    display: none;
+    /* Hide title to match minimal image */
+}
+
+.inventory-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    width: 100%;
+}
+
+/* Synergy Panel (Right of Inventory) */
+#synergy-panel {
+    position: absolute;
+    left: 80px;
+    /* 10px + 60px + 10px gap */
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    pointer-events: auto;
+    z-index: 15;
+    transition: transform 0.3s ease;
+}
+
+/* Gold Icon Sizing fix */
+.btn-cost img {
+    height: 16px;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+#level-info-box {
+    pointer-events: auto;
+    /* Ensure tooltip works */
+    cursor: help;
+    /* Visual cue */
+}
+
+#combat-result {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6rem;
+    font-weight: 900;
+    text-shadow: 0 0 20px black, 0 0 5px black;
+    pointer-events: none;
+    display: none;
+    /* Hidden by default */
+    z-index: 200;
+    font-family: 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+#combat-result.win {
+    color: #4aff4a;
+    text-shadow: 0 0 20px #005500;
+}
+
+#combat-result.lose {
+    color: #ff4a4a;
+    text-shadow: 0 0 20px #550000;
+}

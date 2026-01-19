@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="social-links">
+            <a href="#" target="_blank" aria-label="LinkedIn">IN</a>
+            <a href="#" target="_blank" aria-label="GitHub">GH</a>
+            <a href="mailto:hugo@bertrand.re" aria-label="Email">@</a>
+            <a href="tel:+33600000000" aria-label="Phone">Tel</a>
+        </div>
+    </aside>
+
+    <header class="top-header">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projects.html" class="active">Projets</a></li>
+                <li><a href="timeline.html">Parcours</a></li>
+                <li><button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h1>Mes Réalisations</h1>
+        <p class="subtitle">Quelques projets récents</p>
+
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <article class="project-card">
+                <h3>Projet IUT</h3>
+                <p>Développement d'une application de gestion de stock en Java.</p>
+                <a href="projects/project1/index.html" class="project-link">Voir détails &rarr;</a>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card">
+                <h3>Nuit de l'Info</h3>
+                <p>Création d'un site web interactif en moins de 24h sur le thème de l'écologie.</p>
+                <a href="projects/project2/index.html" class="project-link">Voir détails &rarr;</a>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card">
+                <h3>Site E-commerce</h3>
+                <p>Plateforme de vente en ligne réalisée en PHP avec base de données MySQL.</p>
+                <a href="projects/project3/index.html" class="project-link">Voir détails &rarr;</a>
+            </article>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

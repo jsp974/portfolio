@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet | Nuit de l'Info 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-slate-950 text-white">
+
+<nav class="p-6">
+    <div class="max-w-5xl mx-auto">
+        <a href="../index.html" class="text-slate-400 hover:text-cyan-400 transition flex items-center gap-2">
+            <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
+        </a>
+    </div>
+</nav>
+
+<section class="py-12 px-6">
+    <div class="max-w-5xl mx-auto">
+        <div class="reveal">
+            <span class="text-cyan-400 font-bold tracking-widest uppercase text-xs">Nuit de l'info</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold mt-4 mb-8">Nuit de l'Info <span class="gradient-text">2025</span></h1>
+        </div>
+
+        <div class="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-900/50 mb-12 reveal group">
+            <div class="image-slider-viewport h-[300px] md:h-[500px]"> <div id="imageSliderTrack" class="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]">
+
+                <div class="min-w-full h-full flex items-center justify-center bg-slate-950/20">
+                    <img src="../asset/hidden_snake_ndi2025.png" alt="NDI Image 1" class="max-h-full max-w-full object-contain">
+                </div>
+
+                <div class="min-w-full h-full flex items-center justify-center bg-slate-950/20">
+                    <img src="../asset/img.png" alt="NDI Image 2" class="max-h-full max-w-full object-contain">
+                </div>
+
+            </div>
+            </div>
+
+            <button id="imgPrev" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 border border-slate-700 text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-cyan-500 hover:scale-110 flex items-center justify-center z-10">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="imgNext" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/80 border border-slate-700 text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-cyan-500 hover:scale-110 flex items-center justify-center z-10">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <div id="dotsContainer" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                <div class="dot w-6 h-1.5 rounded-full bg-cyan-400 transition-all duration-300" data-index="0"></div>
+                <div class="dot w-2 h-1.5 rounded-full bg-white/20 transition-all duration-300" data-index="1"></div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="space-y-8 reveal delay-200">
+                <a href="http://88.166.205.108:50004" target="_blank" class="flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all transform hover:-translate-y-1">
+                    Visiter le site <i class="fa-solid fa-external-link text-xs"></i>
+                </a>
+
+                <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl space-y-6">
+                    <div>
+                        <h4 class="text-slate-500 uppercase text-xs font-bold mb-2">Rôle Principal</h4>
+                        <p class="text-white">Développeur Extension Chrome & Easter Egg</p>
+                    </div>
+                    <div>
+                        <h4 class="text-slate-500 uppercase text-xs font-bold mb-2">Équipe</h4>
+                        <p class="text-white">10 personnes</p>
+                    </div>
+                    <div>
+                        <h4 class="text-slate-500 uppercase text-xs font-bold mb-2">Technologies</h4>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="badge">Chrome Extension</span>
+                            <span class="badge">JavaScript</span>
+                            <span class="badge">Python</span>
+                            <span class="badge">Godot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-cyan-500/20 p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition">
+                        <i class="fa-solid fa-keyboard text-6xl"></i>
+                    </div>
+                    <h4 class="text-cyan-400 font-bold mb-2 uppercase text-xs tracking-widest">Secret Unlock</h4>
+                    <p class="text-slate-300 mb-4 font-medium">Faites le Konami Code sur le site :</p>
+                    <div class="flex flex-wrap gap-2 font-mono text-lg">
+                        <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">↑ ↑ ↓ ↓ ← → ← → B A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 space-y-12 reveal delay-300">
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Le Défi</h2>
+                    <p class="text-slate-400 leading-relaxed">
+                        La Nuit de l’Info est une compétition nationale réunissant étudiants et entreprises pour développer une application web en une seule nuit (15 heures chrono).
+                        <br><br>
+                        Le but est de proposer une solution Web 2.0 complète tout en répondant à des défis techniques lancés par des partenaires industriels.
+                    </p>
+                </div>
+
+                <div class="reveal delay-400">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">Distinction</h2>
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                        <div class="relative p-8 rounded-2xl bg-slate-900 border border-yellow-500/30">
+                            <div class="flex flex-col md:flex-row items-center gap-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-16 h-16 rounded-full bg-yellow-500/10 flex items-center justify-center border border-yellow-500/50">
+                                        <i class="fa-solid fa-medal text-3xl text-yellow-500"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-2">2ème Prix National — Défi "Hidden Snake"</h3>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Notre équipe a remporté la <strong>seconde place nationale</strong>. Ce défi exigeait d'intégrer des algorithmes Python complexes de manière invisible et fluide.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-white">Ma Contribution & Easter Egg</h2>
+                    <p class="text-slate-400 leading-relaxed">
+                        Ma mission principale a été le développement de l'<strong>extension Chrome "Reduire"</strong>. Cet outil permettait une interaction directe avec le navigateur pour modifier dynamiquement le contenu web, une brique essentielle à la réussite du défi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-12 text-center border-t border-slate-900 mt-20">
+    <p class="text-slate-600 text-sm">© 2026 Hugo BERTRAND — Nuit de l'Info</p>
+</footer>
+
+<script src="../js/script.js" defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.getElementById('imageSliderTrack');
+        const nextBtn = document.getElementById('imgNext');
+        const prevBtn = document.getElementById('imgPrev');
+        const dots = document.querySelectorAll('.dot');
+        const slides = track.children;
+
+        let currentImg = 0;
+
+        function updateImgSlider() {
+            // Translation latérale
+            track.style.transform = `translateX(-${currentImg * 100}%)`;
+
+            // Mise à jour visuelle des points
+            dots.forEach((dot, idx) => {
+                if (idx === currentImg) {
+                    dot.classList.add('bg-cyan-400', 'w-6');
+                    dot.classList.remove('bg-white/20', 'w-2');
+                } else {
+                    dot.classList.remove('bg-cyan-400', 'w-6');
+                    dot.classList.add('bg-white/20', 'w-2');
+                }
+            });
+        }
+
+        if (nextBtn && prevBtn && track) {
+            nextBtn.addEventListener('click', () => {
+                currentImg = (currentImg + 1) % slides.length;
+                updateImgSlider();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentImg = (currentImg - 1 + slides.length) % slides.length;
+                updateImgSlider();
+            });
+        }
+    });
+</script>
+</body>
+</html>

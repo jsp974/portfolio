@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Parcours - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="social-links">
+            <a href="#" target="_blank" aria-label="LinkedIn">IN</a>
+            <a href="#" target="_blank" aria-label="GitHub">GH</a>
+            <a href="mailto:hugo@bertrand.re" aria-label="Email">@</a>
+            <a href="tel:+33600000000" aria-label="Phone">Tel</a>
+        </div>
+    </aside>
+
+    <header class="top-header">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="timeline.html" class="active">Parcours</a></li>
+                <li><button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h1>Mon Parcours</h1>
+        <p class="subtitle">Formation et Expériences</p>
+
+        <div class="timeline">
+            <!-- Item 1 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2024 - Présent</div>
+                <div class="timeline-content">
+                    <h3>Stage Développeur Fullstack</h3>
+                    <p>Entreprise Tech Solutions, Paris. Développement d'API REST et frontend React.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2022 - 2024</div>
+                <div class="timeline-content">
+                    <h3>BUT Informatique</h3>
+                    <p>IUT de [Ville]. Spécialisation réalisation d'applications.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2022</div>
+                <div class="timeline-content">
+                    <h3>Baccalauréat Général</h3>
+                    <p>Lycée [Nom], Spécialités Mathématiques et NSI.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

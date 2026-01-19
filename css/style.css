@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --bg-dark: #020617;
+    --accent: #22d3ee;
+    --accent-purple: #a855f7;
+    --text-dim: #94a3b8;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Navbar --- */
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-right-group {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.btn-download {
+    background: linear-gradient(90deg, var(--accent), #3b82f6);
+    color: var(--bg-dark);
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: 0.3s ease;
+}
+
+.btn-download:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(34, 211, 238, 0.4); }
+
+/* --- Hero --- */
+.hero-section { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+
+.gradient-text {
+    background: linear-gradient(90deg, #22d3ee, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profile-card {
+    position: relative;
+    width: 425px;
+    height: 425px;
+    border-radius: 100rem;
+    overflow: hidden;
+    transform: rotate(3deg);
+    border: 2px solid rgba(34, 211, 238, 0.2);
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+    transition: 0.5s;
+}
+
+.profile-card:hover { transform: rotate(0deg); border-color: var(--accent); }
+
+.social-links { display: flex; gap: 1.5rem; font-size: 1.5rem; }
+.social-links a { color: var(--text-dim); transition: 0.3s; }
+.social-links a:hover { color: white; transform: translateY(-3px); }
+
+/* --- Timeline --- */
+.timeline { border-left: 2px solid rgba(255,255,255,0.05); position: relative; }
+.timeline-item { padding: 0 0 3rem 2rem; position: relative; }
+.timeline-dot {
+    position: absolute; left: -9px; top: 5px;
+    width: 16px; height: 16px; background: var(--bg-dark);
+    border: 3px solid var(--accent); border-radius: 50%;
+}
+
+/* --- Tech Grid --- */
+/* Conteneur principal */
+.tech-slider-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    position: relative;
+    /* Effet de fondu sur les côtés */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Le rail qui bouge */
+.tech-track {
+    display: flex;
+    width: max-content; /* Très important : laisse le rail prendre toute sa largeur */
+    gap: 2rem;
+    animation: scrollInfinite 30s linear infinite; /* Ajuste la vitesse ici */
+}
+
+/* On stoppe l'animation quand la souris passe sur le rail */
+.tech-track:hover {
+    animation-play-state: paused; /* Stoppe au survol */
+}
+
+.tech-card {
+    flex: 0 0 180px; /* Largeur fixe pour chaque carte */
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    transition: 0.3s;
+}
+
+.tech-card i {
+    font-size: 2.5rem;
+    color: var(--text-dim);
+    transition: 0.3s;
+}
+
+.tech-card span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+
+/* Couleurs spécifiques au survol pour les nouvelles technos */
+.tech-card:hover i.python { color: #3776ab; }
+.tech-card:hover i.java { color: #007396; }
+.tech-card:hover i.react { color: #61dafb; }
+.tech-card:hover i.php { color: #777bb4; }
+.tech-card:hover i.laravel { color: #ff2d20; }
+.tech-card:hover i.symfony { color: #ffffff; }
+.tech-card:hover i.js { color: #f7df1e; }
+.tech-card:hover i.docker { color: #2496ed; }
+.tech-card:hover i.db { color: #4479a1; }
+.tech-card:hover i.git { color: #f05032; }
+.tech-card:hover i.figma { color: #f24e1e; }
+
+/* Optionnel : Un léger glow coloré en fond au survol */
+.tech-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(34, 211, 238, 0.5);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
+}
+
+/* Animation du défilement */
+@keyframes scrollInfinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* On défile de la moitié exactement */
+        transform: translateX(-50%);
+    }
+}
+
+/* --- Slider --- */
+.slider-viewport { width: 100%; overflow: hidden; }
+.slider-track { display: flex; gap: 2rem; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.project-slide { flex: 0 0 calc(50% - 1rem); }
+
+.project-inner {
+    background: #0f172a; border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 1.5rem; overflow: hidden; height: 100%; transition: 0.3s;
+}
+.project-img { aspect-ratio: 16/9; width: 100%; overflow: hidden; }
+.project-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.5s; }
+.project-inner:hover { border-color: var(--accent); }
+.project-inner:hover img { opacity: 1; transform: scale(1.05); }
+
+.slider-btn {
+    width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
+    color: white; transition: 0.3s;
+}
+.slider-btn:hover { background: var(--accent); color: var(--bg-dark); border-color: var(--accent); }
+
+.badge {
+    background: rgba(34, 211, 238, 0.1);
+    color: #22d3ee;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+/* --- Animations --- */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+.section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem; text-align: center; }
+
+.email-link { font-size: 2rem; font-weight: 700; color: var(--accent); text-decoration: underline; transition: 0.3s; }
+.email-link:hover { color: white; }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .project-slide { flex: 0 0 100%; }
+    .title { font-size: 3rem; }
+}
+
+/* --- Formulaire de Contact --- */
+.contact-card {
+    background: rgba(15, 23, 42, 0.4);
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 15px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent), #3b82f6);
+    color: #020617;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(34, 211, 238, 0.3);
+}
+
+/* --- Boutons Sociaux --- */
+.social-btn {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    font-size: 1.4rem;
+    color: var(--text-dim);
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    color: white;
+}
+
+.social-btn.linkedin:hover { background: #0077b5; border-color: #0077b5; }
+.social-btn.github:hover { background: #333; border-color: #444; }
+.social-btn.mail:hover { background: #ea4335; border-color: #ea4335; }
+
+/* --- Zone CV --- */
+.cv-section {
+    transition: 0.3s;
+}
+
+.cv-section:hover {
+    border-color: rgba(34, 211, 238, 0.3);
+    background: rgba(34, 211, 238, 0.03);
+}

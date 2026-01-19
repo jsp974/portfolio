@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet | Auto Battler WebGL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <nav class="p-6">
+        <div class="max-w-5xl mx-auto">
+            <a href="../index.html" class="text-slate-400 hover:text-cyan-400 transition flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
+            </a>
+        </div>
+    </nav>
+
+    <section class="py-12 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="reveal">
+                <span class="text-cyan-400 font-bold tracking-widest uppercase text-xs">Custom Engine</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold mt-4 mb-8">Auto Battler <span
+                        class="gradient-text">WebGL</span></h1>
+            </div>
+
+            <!-- Hero Card (Placeholder visual) -->
+            <div
+                class="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-900/50 mb-12 reveal group">
+                <div
+                    class="h-[300px] md:h-[500px] bg-slate-950 flex items-center justify-center relative overflow-hidden">
+                    <img src="../asset/auto-battler.png" alt="Auto Battler Gameplay"
+                        class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Sidebar: Key Techs & Highlights -->
+                <div class="space-y-8 reveal delay-200">
+                    <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl space-y-6">
+                        <div>
+                            <h4 class="text-slate-500 uppercase text-xs font-bold mb-2">Type de Projet</h4>
+                            <p class="text-white">Autobattler 2D/3D (Custom Engine)</p>
+                        </div>
+                        <div>
+                            <h4 class="text-slate-500 uppercase text-xs font-bold mb-2">Architecture</h4>
+                            <p class="text-white">ECS, Game Loop, Event System</p>
+                        </div>
+                        <div>
+                            <h4 class="text-slate-500 uppercase text-xs font-bold mb-2">Technologies Clés</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="badge">JavaScript (ES6+)</span>
+                                <span class="badge">WebGL 1.0/2.0</span>
+                                <span class="badge">GLSL Shaders</span>
+                                <span class="badge">HTML5/CSS3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-indigo-900/10 border border-indigo-500/20 rounded-2xl">
+                        <h4
+                            class="text-indigo-400 font-bold mb-4 uppercase text-xs tracking-widest flex items-center gap-2">
+                            <i class="fa-solid fa-code"></i> Points Forts Techniques
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-400 mt-1 text-xs"></i>
+                                <span class="text-slate-300 text-sm"><strong class="text-white">Programmation Graphique
+                                        :</strong> Écriture de shaders Vertex/Fragment et manipulation du
+                                    pipeline.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-400 mt-1 text-xs"></i>
+                                <span class="text-slate-300 text-sm"><strong class="text-white">Algorithmique :</strong>
+                                    Pathfinding et IA décisionnelle simple.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-400 mt-1 text-xs"></i>
+                                <span class="text-slate-300 text-sm"><strong class="text-white">Architecture :</strong>
+                                    Code modulaire (Modules ES6) propre et maintenable.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="md:col-span-2 space-y-12 reveal delay-300">
+
+                    <!-- Elevator Pitch -->
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-white">Le Projet</h2>
+                        <p class="text-slate-400 text-lg leading-relaxed">
+                            Un jeu de stratégie de type "Auto-Battler" développé entièrement <em>from scratch</em> en
+                            JavaScript et WebGL natif, sans l'utilisation de moteurs de jeux existants (comme Unity ou
+                            Three.js).
+                        </p>
+                        <p class="text-slate-400 text-lg leading-relaxed mt-4">
+                            Ce projet a pour but de démontrer une compréhension approfondie du <strong>rendu graphique
+                                bas-niveau</strong>, de l'<strong>architecture logicielle de jeu</strong> (Game Loop,
+                            Entity Component System), et des algorithmes de simulation de combat autonome.
+                        </p>
+                    </div>
+
+                    <!-- Features -->
+                    <div>
+                        <h2 class="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+                            <i class="fa-solid fa-gears text-indigo-500"></i> Fonctionnalités Principales
+                        </h2>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <!-- Feature 1 -->
+                            <div
+                                class="bg-slate-900 border border-slate-800 p-5 rounded-xl hover:border-indigo-500/50 transition duration-300">
+                                <h3 class="text-white font-bold mb-2">Moteur de Rendu Custom</h3>
+                                <p class="text-slate-400 text-sm">
+                                    Wrapper WebGL léger écrit à la main pour gérer l'affichage performant des unités,
+                                    projectiles et du terrain (<em>gl.js, renderer.js</em>).
+                                </p>
+                            </div>
+
+                            <!-- Feature 2 -->
+                            <div
+                                class="bg-slate-900 border border-slate-800 p-5 rounded-xl hover:border-indigo-500/50 transition duration-300">
+                                <h3 class="text-white font-bold mb-2">Logique de Combat</h3>
+                                <p class="text-slate-400 text-sm">
+                                    Système autonome tour par tour avec recherche de cible dynamique, gestion des
+                                    portées et machines à états finis.
+                                </p>
+                            </div>
+
+                            <!-- Feature 3 -->
+                            <div
+                                class="bg-slate-900 border border-slate-800 p-5 rounded-xl hover:border-indigo-500/50 transition duration-300">
+                                <h3 class="text-white font-bold mb-2">Système de Synergies</h3>
+                                <p class="text-slate-400 text-sm">
+                                    Mécanique de gameplay calculant des bonus dynamiques (ex: bonus actifs si 2+ unités
+                                    de type "Humain" sont sur le terrain).
+                                </p>
+                            </div>
+
+                            <!-- Feature 4 -->
+                            <div
+                                class="bg-slate-900 border border-slate-800 p-5 rounded-xl hover:border-indigo-500/50 transition duration-300">
+                                <h3 class="text-white font-bold mb-2">Économie & État</h3>
+                                <p class="text-slate-400 text-sm">
+                                    Gestion de l'Or et de l'XP, boutique avec "reroll", drag & drop d'items et
+                                    persistance des états entre les rounds.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div
+                        class="p-8 rounded-2xl bg-gradient-to-r from-indigo-900 to-indigo-800 border border-indigo-700 text-center relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-indigo-600/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-700">
+                        </div>
+                        <h3 class="text-white font-bold text-xl mb-4 relative z-10">Difficile de résister ?</h3>
+                        <p class="text-indigo-200 mb-8 relative z-10">Teste le jeu directement dans ton navigateur.</p>
+
+                        <a href="autobattler/index.html" target="_blank"
+                            class="inline-flex items-center gap-3 px-8 py-3 bg-white text-indigo-900 rounded-xl font-bold hover:bg-indigo-50 transition-all transform hover:-translate-y-1 relative z-10 box-shadow-xl">
+                            <i class="fa-solid fa-play"></i>
+                            Jouer maintenant
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center border-t border-slate-900 mt-20">
+        <p class="text-slate-600 text-sm">© 2026 Hugo BERTRAND — Portfolio</p>
+    </footer>
+
+    <script src="../js/script.js" defer></script>
+</body>
+
+</html>

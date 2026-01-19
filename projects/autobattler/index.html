@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL Autobattler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="gl-canvas"></canvas>
+        <div id="combat-result"></div> <!-- Correct Position -->
+
+        <div id="ui-layer">
+            <div id="top-bar">
+                <div id="stage-info">Stage 1-1</div>
+                <div id="gold-display">Gold: 0</div>
+                <button id="btn-start-combat">Start Combat</button>
+            </div>
+
+            <div id="item-stash" class="hidden">
+                <div class="stash-title">Stash</div>
+                <div id="stash-slot" class="item-slot empty"></div>
+            </div>
+
+            <div id="synergy-panel">
+                <div class="synergy-list">
+                    <!-- Synergy Rows injected here -->
+                </div>
+            </div>
+
+            <div id="shop-container">
+                <div id="shop-left-panel">
+                    <div id="level-info-box"
+                        title="Le niveau augmente vos chances d'obtenir des unités rares et augmente la taille maximale de votre armée.">
+                        <div id="level-display">Niv. 1</div>
+                        <div id="xp-display">0/40</div>
+                    </div>
+                    <button id="btn-xp">
+                        <div class="btn-title">Acheter XP</div>
+                        <div class="btn-cost"><img src="assets/icon_gold.png" onerror="this.style.display='none'"> 4
+                        </div>
+                    </button>
+                    <button id="btn-roll">
+                        <div class="btn-title">Actualiser</div>
+                        <div class="btn-cost">2</div>
+                    </button>
+                </div>
+                <div id="shop-cards">
+                    <!-- Shop cards injected here -->
+                </div>
+                <div id="shop-rates-panel">
+                    <div class="rate-title">Taux</div>
+                    <div class="rate-row tier-1"><span id="rate-1">100%</span></div>
+                    <div class="rate-row tier-2"><span id="rate-2">0%</span></div>
+                    <div class="rate-row tier-3"><span id="rate-3">0%</span></div>
+                    <div class="rate-row tier-4"><span id="rate-4">0%</span></div>
+                    <div class="rate-row tier-5"><span id="rate-5">0%</span></div>
+                </div>
+            </div>
+
+            <div id="tooltip" class="hidden"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js" defer></script>
+</body>
+
+</html>

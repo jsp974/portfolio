@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet | My Avatar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <nav class="p-6">
+        <div class="max-w-5xl mx-auto">
+            <a href="../index.html" class="text-slate-400 hover:text-cyan-400 transition flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
+            </a>
+        </div>
+    </nav>
+
+    <section class="py-12 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="reveal">
+                <span class="text-cyan-400 font-bold tracking-widest uppercase text-xs">Service Web</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold mt-4 mb-8">My Avatar <span
+                        class="gradient-text">Service</span></h1>
+            </div>
+
+            <!-- Hero Card -->
+            <div
+                class="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-900/50 mb-12 reveal group">
+                <div
+                    class="h-[300px] md:h-[500px] bg-slate-950 flex items-center justify-center relative overflow-hidden">
+                    <img src="../asset/my_avatar.png" alt="My Avatar Preview"
+                        class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Sidebar: Key Techs -->
+                <div class="space-y-8 reveal delay-200">
+                    <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl space-y-6">
+                        <div>
+                            <h4 class="text-slate-500 uppercase text-xs font-bold mb-2">Type de Projet</h4>
+                            <p class="text-white">Application Web / API</p>
+                        </div>
+                        <div>
+                            <h4 class="text-slate-500 uppercase text-xs font-bold mb-2">Technologies Clés</h4>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="badge">Symfony</span>
+                                <span class="badge">API Platform</span>
+                                <span class="badge">MySQL</span>
+                                <span class="badge">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div
+                        class="p-6 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-800 border border-blue-700 text-center relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-blue-600/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-700">
+                        </div>
+                        <h3 class="text-white font-bold text-lg mb-2 relative z-10">Voir le projet</h3>
+                        <p class="text-blue-200 text-sm mb-6 relative z-10">Générez votre avatar dès maintenant.</p>
+
+                        <a href="https://webinfo.iutmontp.univ-montp2.fr/~buvrya/my-avatar/public/" target="_blank"
+                            class="inline-flex items-center gap-2 px-6 py-2 bg-white text-blue-900 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:-translate-y-1 relative z-10 box-shadow-xl text-sm justify-center w-full">
+                            <i class="fa-solid fa-external-link"></i>
+                            Accéder au site
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="md:col-span-2 space-y-12 reveal delay-300">
+
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6 text-white">Le Projet</h2>
+                        <p class="text-slate-400 text-lg leading-relaxed">
+                            <strong>My Avatar</strong> est un service web inspiré de Gravatar, permettant aux
+                            utilisateurs de générer et gérer des photos de profil centralisées.
+                        </p>
+                        <p class="text-slate-400 text-lg leading-relaxed mt-4">
+                            Développé avec <strong>Symfony</strong>, ce projet met en avant une architecture robuste
+                            reposant sur une API puissante et une base de données MySQL optimisée. L'interface, claire
+                            et responsive, a été conçue avec <strong>Bootstrap</strong> pour garantir une expérience
+                            utilisateur fluide sur tous les supports.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+                            <i class="fa-solid fa-code text-blue-500"></i> Points Techniques
+                        </h2>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div
+                                class="bg-slate-900 border border-slate-800 p-5 rounded-xl hover:border-blue-500/50 transition duration-300">
+                                <h3 class="text-white font-bold mb-2">Symfony & API</h3>
+                                <p class="text-slate-400 text-sm">
+                                    Création d'endpoints RESTful pour la distribution des avatars et gestion des
+                                    utilisateurs.
+                                </p>
+                            </div>
+
+                            <div
+                                class="bg-slate-900 border border-slate-800 p-5 rounded-xl hover:border-blue-500/50 transition duration-300">
+                                <h3 class="text-white font-bold mb-2">Base de Données</h3>
+                                <p class="text-slate-400 text-sm">
+                                    Conception d'un modèle de données relationnel efficace avec MySQL et Doctrine ORM.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center border-t border-slate-900 mt-20">
+        <p class="text-slate-600 text-sm">© 2026 Hugo BERTRAND — Portfolio</p>
+    </footer>
+
+    <script src="../js/script.js" defer></script>
+</body>
+
+</html>
