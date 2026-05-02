@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Bilan de Compétences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body class="antialiased bg-slate-950 text-slate-400">
+
+    <nav class="navbar">
+        <div class="container-nav">
+            <div class="nav-right-group">
+                <div class="nav-links">
+                    <a href="index.html#about">À propos</a>
+                    <a href="index.html#timeline">Parcours</a>
+                    <a href="index.html#tech">Stack</a>
+                    <a href="index.html#projects">Projets</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-5xl mx-auto">
+        <div class="mb-16 reveal">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Bilan de Compétences - <span class="gradient-text">BUT Informatique</span>
+            </h1>
+            <p class="text-lg text-slate-400 leading-relaxed">
+                Ce document synthétise mes apprentissages et réalisations lors de mon 6ème semestre en formation initiale à l'IUT de Montpellier-Sète. Mon projet majeur fut le développement d'une application météo multiplateforme (Web avec Symfony, Mobile et Montre connectée via Gradle), intégrant des fonctionnalités avancées telles qu'une carte interactive (particules de vent en temps réel), un forum de discussion géolocalisé et un système de comptes (Favoris/Premium).
+            </p>
+        </div>
+
+        <!-- Section A -->
+        <section class="mb-16 reveal">
+            <h2 class="text-3xl font-bold text-white mb-6">Introduction & Apprentissages Critiques (AC)</h2>
+            <div class="p-8 rounded-2xl bg-slate-800/50 border border-slate-700/50 space-y-4 shadow-xl">
+                <p>Ma troisième année d'études se focalise sur l'atteinte du <strong>Niveau 3 de l'expertise</strong> du référentiel national, articulé autour de trois compétences clés :</p>
+                <ul class="list-none space-y-4 mt-6 text-slate-300">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-code text-cyan-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white text-lg">Réaliser :</strong>
+                            <p class="text-sm mt-1">Adapter des applications sur des supports variés et hétérogènes (interfaces Web, applications Mobile, systèmes embarqués ou IoT).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-bolt text-cyan-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white text-lg">Optimiser :</strong>
+                            <p class="text-sm mt-1">Analyser en profondeur et améliorer drastiquement les performances et l'efficacité des applications.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-users text-cyan-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white text-lg">Collaborer :</strong>
+                            <p class="text-sm mt-1">Manager une équipe informatique de manière agile et assurer la cohésion autour d'un projet commun.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section B -->
+        <section class="mb-16 reveal delay-100">
+            <h2 class="text-3xl font-bold text-white mb-6">Mes Réalisations Techniques & Managériales</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-400/50 transition duration-300 group shadow-lg">
+                    <div class="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-mobile-screen-button text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">Adaptation Multi-support</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">J'ai conçu et développé le tableau de bord principal, le profil utilisateur intégrant l'authentification à deux facteurs (A2F), ainsi qu'une interface dédiée et ergonomique pour montre connectée, garantissant une expérience fluide quel que soit le périphérique.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-purple-400/50 transition duration-300 group shadow-lg">
+                    <div class="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-gauge-high text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition">Optimisation Technique</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Au cœur de l'application, j'ai optimisé les appels API pour permettre l'affichage fluide et en temps réel de particules de vent. J'ai également géré la rapidité d'exécution globale et mis en place un mode hors ligne robuste pour garantir la résilience de l'application.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-green-400/50 transition duration-300 group shadow-lg">
+                    <div class="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-users-gear text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition">Management & Résilience</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Suite au départ de 3 membres sur 6 de notre équipe, j'ai secondé le Scrum Master pour restructurer le projet. Nous avons redistribué les tâches critiques sur Trello et mené un nettoyage complet du dépôt Git (résolution de conflits, purge de fichiers <code>.env</code> et configurations locales poussés par erreur).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section C -->
+        <section class="mb-16 reveal delay-200">
+            <h2 class="text-3xl font-bold text-white mb-6">Analyse Personnelle & Soft Skills</h2>
+            <div class="p-8 rounded-2xl bg-slate-800/50 border border-slate-700/50 space-y-6 shadow-xl">
+                <div class="flex items-start gap-5">
+                    <div class="w-10 h-10 shrink-0 bg-slate-900 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-fire text-pink-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Passion pour la manipulation des API</h4>
+                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">L'intégration et la manipulation d'API complexes représentent pour moi un véritable terrain de jeu. Connecter divers services et exploiter des données distantes (comme les prévisions météo et données géospatiales) stimule mon attrait pour l'interopérabilité des systèmes.</p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-slate-700/50"></div>
+                <div class="flex items-start gap-5">
+                    <div class="w-10 h-10 shrink-0 bg-slate-900 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-bug-slash text-cyan-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Débogage de situations critiques</h4>
+                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">J'ai développé une solide capacité à analyser et résoudre des problèmes sous pression, qu'il s'agisse de défis purement techniques (bugs complexes, git branch conflicts) ou de situations humaines (gestion de l'effort de l'équipe suite aux départs imprévus).</p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-slate-700/50"></div>
+                <div class="flex items-start gap-5">
+                    <div class="w-10 h-10 shrink-0 bg-slate-900 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-arrow-trend-up text-green-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Axe d'amélioration : Communication & Management</h4>
+                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">Dans un cadre de management, je souhaite perfectionner ma communication avec des collaborateurs que je connais peu. Apprendre à adapter mon discours, exprimer clairement mes attentes et instaurer rapidement un climat de confiance reste un de mes objectifs professionnels majeurs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section D -->
+        <section class="reveal delay-300">
+            <h2 class="text-3xl font-bold text-white mb-6">Projet Post-BUT</h2>
+            <div class="p-10 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700/50 text-center shadow-2xl relative overflow-hidden">
+                <!-- Background decoration -->
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-yellow-400/5 rounded-full blur-2xl"></div>
+                
+                <div class="w-20 h-20 bg-slate-900/80 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10 border border-slate-700">
+                    <i class="fa-solid fa-graduation-cap text-4xl text-yellow-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 relative z-10">Intégration d'un cycle supérieur</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed relative z-10">
+                    Fort de ce bagage technique et managérial de Niveau 3, mon objectif prioritaire à l'issue de mon semestre 6 est d'intégrer une <strong>école d'ingénieur</strong> ou un <strong>Master en informatique</strong>. Cette poursuite d'études me permettra d'approfondir mon expertise en architecture logicielle et de relever des défis technologiques encore plus ambitieux.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 border-t border-slate-900 text-center text-slate-600 text-xs mt-12">
+        <p>© 2026 Hugo BERTRAND. Portfolio & Bilan de Compétences.</p>
+    </footer>
+
+</body>
+</html>
